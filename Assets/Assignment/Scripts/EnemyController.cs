@@ -16,7 +16,7 @@ public class EnemyController : MonoBehaviour
     public GameObject projectile;       // Prefab for projectile to fire
     public Transform spawnPoint;        // Spawn position for projectiles
 
-    public Transform target;            // Holds the transform of the target (player) to look at them
+    private Transform target;            // Holds the transform of the target (player) to look at them
 
     private Rigidbody2D rb;             // This object's rigidbody
 
@@ -27,6 +27,7 @@ public class EnemyController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         // if the spawnpoint isn't given a value, default to this object's transform instead
         if (spawnPoint == null) { spawnPoint = transform; }
+        target = GameObject.Find("Player").transform;
     }
 
     // Update is called once per frame
